@@ -10,6 +10,11 @@
       if (!token) throw new Error('"token"は必須です');
     }
 
+    PractiTestClient.prototype.getIssuesInProject = function(projectId) {
+      var id = projectId || this.projectId;
+      return this.fetch_('/projects/' + id + '/issues.json',{'method': 'get'});
+    };
+
     return PractiTestClient;
   })();
 

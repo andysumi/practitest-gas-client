@@ -8,3 +8,12 @@
 function create(email, token, projectId) { // eslint-disable-line no-unused-vars
   return new PractiTestClient(email, token, projectId);
 }
+
+/**
+ * プロジェクト内のIssueを取得する
+ * @param {Integer} projectId 【任意】プロジェクトID
+ * @return {Object} Issueのオブジェクト
+ */
+function getIssuesInProject(projectId) { // eslint-disable-line no-unused-vars
+  throw new Error('このメソッドは直接呼び出せません。createメソッドで取得したインスタンスより呼び出してください。');
+}
