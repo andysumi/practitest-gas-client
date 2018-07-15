@@ -15,6 +15,19 @@
       return this.fetch_('/projects/' + id + '/issues.json',{'method': 'get'});
     };
 
+    PractiTestClient.prototype.fetch_ = function(endPoint, options) {
+      var url = this.apiUrl + endPoint;
+      var response = UrlFetchApp.fetch(url, {
+        'method': options.method,
+        'muteHttpExceptions': true,
+        'contentType': 'application/json; charset=utf-8',
+        'headers': this.headers,
+        'payload': options.payload || {}
+      });
+
+      return JSON.parse(response.getContentText());
+    };
+
     return PractiTestClient;
   })();
 
