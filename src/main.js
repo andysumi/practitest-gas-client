@@ -17,3 +17,12 @@ function create(email, token, projectId) { // eslint-disable-line no-unused-vars
 function getIssuesInProject(projectId) { // eslint-disable-line no-unused-vars
   throw new Error('このメソッドは直接呼び出せません。createメソッドで取得したインスタンスより呼び出してください。');
 }
+
+/**
+ * 指定したIssueを取得する
+ * @param {Integer} issueId 【必須】IssueID
+ * @return {Object} Issueのオブジェクト
+ */
+function getSpecificIssue(issueId) { // eslint-disable-line no-unused-vars
+  throw new Error('このメソッドは直接呼び出せません。createメソッドで取得したインスタンスより呼び出してください。');
+}

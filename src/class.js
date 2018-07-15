@@ -15,6 +15,10 @@
       return this.fetch_('/projects/' + id + '/issues.json',{'method': 'get'});
     };
 
+    PractiTestClient.prototype.getSpecificIssue = function(issueId) {
+      return this.fetch_('/projects/' + this.projectId + '/issues/' + issueId + '.json',{'method': 'get'});
+    };
+
     PractiTestClient.prototype.fetch_ = function(endPoint, options) {
       var url = this.apiUrl + endPoint;
       var response = UrlFetchApp.fetch(url, {
