@@ -12,13 +12,21 @@
       if (!token) throw new Error('"token"は必須です');
     }
 
-    PractiTestClient.prototype.getIssuesInProject = function(projectId) {
+    PractiTestClient.prototype.getIssuesInProject = function(projectId, options) {
       var id = projectId || this.projectId;
-      return this.fetch_('/projects/' + id + '/issues.json',{'method': 'get'});
+
+      if (options) {
+        var params = [];
+        for (var key in options) {
+          params.push(key + '=' + options[key]);
+        }
+      }
+
+      return this.fetch_('/projects/' + id + '/issues.json?' + params.join('&'), {method: 'get'});
     };
 
     PractiTestClient.prototype.getSpecificIssue = function(issueId) {
-      return this.fetch_('/projects/' + this.projectId + '/issues/' + issueId + '.json',{'method': 'get'});
+      return this.fetch_('/projects/' + this.projectId + '/issues/' + issueId + '.json',{method: 'get'});
     };
 
     PractiTestClient.prototype.fetch_ = function(endPoint, options) {
