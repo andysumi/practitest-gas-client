@@ -14,7 +14,7 @@ function create(email, token, projectId) { // eslint-disable-line no-unused-vars
  * https://www.practitest.com/api-v2/#get-all-issues-in-your-project
  * @param {Integer} projectId 【任意】プロジェクトID
  * @param {Object} options 【任意】オプション ※ドキュメント参照
- * @return {Object} Issueのオブジェクト
+ * @return {Object} 処理結果
  */
 function getIssuesInProject(projectId, options) { // eslint-disable-line no-unused-vars
   throw new Error('このメソッドは直接呼び出せません。createメソッドで取得したインスタンスより呼び出してください。');
@@ -24,8 +24,19 @@ function getIssuesInProject(projectId, options) { // eslint-disable-line no-unus
  * 指定したIssueを取得する
  * https://www.practitest.com/api-v2/#show-a-specific-issue
  * @param {Integer} issueId 【必須】IssueID
- * @return {Object} Issueのオブジェクト
+ * @return {Object} 処理結果
  */
 function getSpecificIssue(issueId) { // eslint-disable-line no-unused-vars
+  throw new Error('このメソッドは直接呼び出せません。createメソッドで取得したインスタンスより呼び出してください。');
+}
+
+/**
+ * プロジェクト内のCustom fieldを取得する
+ * https://www.practitest.com/api-v2/#get-all-custom-fields-in-your-project
+ * @param {Integer} projectId 【任意】プロジェクトID
+ * @param {Object} options 【任意】オプション ※ドキュメント参照
+ * @return {Object} 処理結果
+ */
+function getCustomFieldsInProject(projectId, options) { // eslint-disable-line no-unused-vars
   throw new Error('このメソッドは直接呼び出せません。createメソッドで取得したインスタンスより呼び出してください。');
 }

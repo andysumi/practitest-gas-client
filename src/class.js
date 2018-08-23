@@ -14,19 +14,32 @@
 
     PractiTestClient.prototype.getIssuesInProject = function(projectId, options) {
       var id = projectId || this.projectId;
+      var param = this.createUrlParamFromObject_(options);
+
+      return this.fetch_('/projects/' + id + '/issues.json?' + param, {method: 'get'});
+    };
+
+    PractiTestClient.prototype.getSpecificIssue = function(issueId) {
+      return this.fetch_('/projects/' + this.projectId + '/issues/' + issueId + '.json',{method: 'get'});
+    };
+
+    PractiTestClient.prototype.getCustomFieldsInProject = function(projectId, options) {
+      var id = projectId || this.projectId;
+      var param = this.createUrlParamFromObject_(options);
+
+      return this.fetch_('/projects/' + id + '/custom_fields.json?' + param, {method: 'get'});
+    };
+
+    PractiTestClient.prototype.createUrlParamFromObject_ = function(options) {
+      var params = [];
 
       if (options) {
-        var params = [];
         for (var key in options) {
           params.push(key + '=' + options[key]);
         }
       }
 
-      return this.fetch_('/projects/' + id + '/issues.json?' + params.join('&'), {method: 'get'});
-    };
-
-    PractiTestClient.prototype.getSpecificIssue = function(issueId) {
-      return this.fetch_('/projects/' + this.projectId + '/issues/' + issueId + '.json',{method: 'get'});
+      return params.join('&');
     };
 
     PractiTestClient.prototype.fetch_ = function(endPoint, options) {

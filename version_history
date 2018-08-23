@@ -1,3 +1,4 @@
 1 - getIssuesInProject及びgetSpecificIssueを追加
 2 - レスポンスにstatusを追加
 3 - getIssuesInProjectメソッドのパラメータにoptionsを追加
+4 - getCustomFieldsInProjectメソッドを追加
